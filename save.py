@@ -29,7 +29,8 @@ def save():
             "w":le.Letter.w,
             "x":le.Letter.x,
             "y":le.Letter.y,
-            "z":le.Letter.z
+            "z":le.Letter.z,
+            " ":le.Letter.space
             }))
         
 if __name__=='__main__':

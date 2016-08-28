@@ -1,4 +1,3 @@
-
 class Letter():
     a="A"
     b="B"
@@ -26,3 +25,4 @@ class Letter():
     x="X"
     y="Y"
     z="Z"
+    space=" "
