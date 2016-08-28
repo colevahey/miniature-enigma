@@ -39,9 +39,8 @@ def load_game():
     encodedmessage = input("What is your encoded message? >> ")
     n=0
     while n < len(encodedmessage):
-        sys.stdout.write(encodedmessage[n])
+        print(encodedmessage[n])
         n += 1
-    print("")
 
 if __name__=='__main__':
     load_game()
