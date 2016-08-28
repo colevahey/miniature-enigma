@@ -1,26 +1,36 @@
 import json
-import classes as cl
-author="jajaio"
+import letters as le
 
-def save_game():
-    with open('player.json', 'w') as pfile:
+def save():
+    with open('letters.json', 'w') as pfile:
         pfile.write(json.dumps({
-            "hp":cl.Player.hp,
-            "agi":cl.Player.agi,
-            "deff":cl.Player.deff,
-            "att":cl.Player.att,
-            "mp":cl.Player.mp,
-            "xp":cl.Player.xp,
-            "name":cl.Player.name,
-            "lvl":cl.Player.lvl,
-            "dragon":cl.Player.dragon,
-            "xpreq":cl.Player.xpreq,
-            "skulls":cl.Player.skulls,
-            "wname":cl.Player.wname,
-            "bcomp":cl.Player.bcomp,
-            "ecomp":cl.Player.ecomp,
-            "dcomp":cl.Player.dcomp
+            "a":le.Letter.a,
+            "b":le.Letter.b,
+            "c":le.Letter.c,
+            "d":le.Letter.d,
+            "e":le.Letter.e,
+            "f":le.Letter.f,
+            "g":le.Letter.g,
+            "h":le.Letter.h,
+            "i":le.Letter.i,
+            "j":le.Letter.j,
+            "k":le.Letter.k,
+            "l":le.Letter.l,
+            "m":le.Letter.m,
+            "n":le.Letter.n,
+            "o":le.Letter.o,
+            "p":le.Letter.p,
+            "q":le.Letter.q,
+            "r":le.Letter.r,
+            "s":le.Letter.s,
+            "t":le.Letter.t,
+            "u":le.Letter.u,
+            "v":le.Letter.v,
+            "w":le.Letter.w,
+            "x":le.Letter.x,
+            "y":le.Letter.y,
+            "z":le.Letter.z
             }))
         
 if __name__=='__main__':
-    save_game()
+    save()

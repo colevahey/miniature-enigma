@@ -1,62 +1,91 @@
 #!/usr/bin/env python3
 
 import random
+import letters as le
+import save
 
 def main():
     letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
     a = random.choice(letters)
+    le.Letter.a=a
     letters.remove(a)
     b = random.choice(letters)
+    le.Letter.b=b
     letters.remove(b)
     c = random.choice(letters)
+    le.Letter.c=c
     letters.remove(c)
     d = random.choice(letters)
+    le.Letter.d=d
     letters.remove(d)
     e = random.choice(letters)
+    le.Letter.e=e
     letters.remove(e)
     f = random.choice(letters)
+    le.Letter.f=f
     letters.remove(f)
     g = random.choice(letters)
+    le.Letter.g=g
     letters.remove(g)
     h = random.choice(letters)
+    le.Letter.h=h
     letters.remove(h)
     i = random.choice(letters)
+    le.Letter.i=i
     letters.remove(i)
     j = random.choice(letters)
+    le.Letter.j=j
     letters.remove(j)
     k = random.choice(letters)
+    le.Letter.k=k
     letters.remove(k)
     l = random.choice(letters)
+    le.Letter.l=l
     letters.remove(l)
     m = random.choice(letters)
+    le.Letter.m=m
     letters.remove(m)
     n = random.choice(letters)
+    le.Letter.n=n
     letters.remove(n)
     o = random.choice(letters)
+    le.Letter.o=o
     letters.remove(o)
     p = random.choice(letters)
+    le.Letter.p=p
     letters.remove(p)
     q = random.choice(letters)
+    le.Letter.q=q
     letters.remove(q)
     r = random.choice(letters)
+    le.Letter.r=r
     letters.remove(r)
     s = random.choice(letters)
+    le.Letter.s=s
     letters.remove(s)
     t = random.choice(letters)
+    le.Letter.t=t
     letters.remove(t)
     u = random.choice(letters)
+    le.Letter.u=u
     letters.remove(u)
     v = random.choice(letters)
+    le.Letter.v=v
     letters.remove(v)
     w = random.choice(letters)
+    le.Letter.w=w
     letters.remove(w)
     x = random.choice(letters)
+    le.Letter.x=x
     letters.remove(x)
     y = random.choice(letters)
+    le.Letter.y=y
     letters.remove(y)
     z = random.choice(letters)
+    le.Letter.z=z
     letters.remove(z)
     print(a+b+c+d+e+f+g+h+i+j+k+l+m+n+o+p+q+r+s+t+u+v+w+x+y+z)
+    save.save()
 
 if __name__ == '__main__':
     main()
