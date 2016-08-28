@@ -30,7 +30,9 @@ def save():
             "x":le.Letter.x,
             "y":le.Letter.y,
             "z":le.Letter.z,
-            " ":le.Letter.space
+            " ":le.Letter.space,
+            "?":le.Letter.question,
+            "!":le.Letter.exclamation
             }))
         
 if __name__=='__main__':

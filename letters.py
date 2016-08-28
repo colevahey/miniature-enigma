@@ -26,3 +26,5 @@ class Letter():
     y="Y"
     z="Z"
     space=" "
+    question="?"
+    exclamation="!"
