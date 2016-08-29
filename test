@@ -1,0 +1,12 @@
+#!/usr/bin/env python3
+
+json = {"A":"a","B":"b","C":"c"}
+
+tester="jhgf"
+
+for x in sorted(json):
+    for y in json[x]:
+        print(x)
+
+json2 = {y:x for x,y in json.items()}
+print(json2["a"])

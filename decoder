@@ -7,40 +7,14 @@ import sys
 def load_game():
     with open('letters.json', 'r') as pfile:
         j=json.load(pfile)
-        le.Letter.a=j['a']
-        le.Letter.b=j['b']
-        le.Letter.c=j['c']
-        le.Letter.d=j['d']
-        le.Letter.e=j['e']
-        le.Letter.f=j['f']
-        le.Letter.g=j['g']
-        le.Letter.h=j['h']
-        le.Letter.i=j['i']
-        le.Letter.j=j['j']
-        le.Letter.k=j['k']
-        le.Letter.l=j['l']
-        le.Letter.m=j['m']
-        le.Letter.n=j['n']
-        le.Letter.o=j['o']
-        le.Letter.p=j['p']
-        le.Letter.q=j['q']
-        le.Letter.r=j['r']
-        le.Letter.s=j['s']
-        le.Letter.t=j['t']
-        le.Letter.u=j['u']
-        le.Letter.v=j['v']
-        le.Letter.w=j['w']
-        le.Letter.x=j['x']
-        le.Letter.y=j['y']
-        le.Letter.z=j['z']
-        le.Letter.space=j[' ']
-        le.Letter.question=j['?']
-        le.Letter.exclamation=j["!"]
+        #le.Letter.a=j['a']
+    inverse = {y:x for x,y in j.items()}
     encodedmessage = input("What is your encoded message? >> ")
     n=0
     while n < len(encodedmessage):
-        print(encodedmessage[n])
+        sys.stdout.write(inverse[encodedmessage[n]])
         n += 1
+    print("")
 
 if __name__=='__main__':
     load_game()
