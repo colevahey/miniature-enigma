@@ -3,15 +3,16 @@
 import letters as le
 import json
 import sys
+import skilstak.colors as c
 
 def encoder():
     with open('letters.json', 'r') as pfile:
         j=json.load(pfile)
         #le.Letter.a=j['a']
     n=0
-    message = input("What is your message? >> ")
+    message = input(c.clear + c.red + "What is your message? >> " + c.orange)
     while n < len(message):
-        sys.stdout.write(j[message[n]])
+        sys.stdout.write(c.orange + j[message[n]])
         n += 1
     print("")
 
