@@ -4,6 +4,7 @@ import letters as le
 import json
 import sys
 import skilstak.colors as c
+from os import system
 
 def encoder():
     with open('letters.json', 'r') as pfile:
