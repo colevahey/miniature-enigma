@@ -59,5 +59,7 @@ class Letter():
     money="$"
     hashtag="#"
     aestric="*"
+    andsign="&"
+    percent="%"
     parenthesisleft="("
     parenthesisright=")"

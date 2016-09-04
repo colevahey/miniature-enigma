@@ -58,13 +58,15 @@ def save():
             "Z":le.Letter.Z,
             " ":le.Letter.space,
             "?":le.Letter.question,
-            "!":le.Letter.exclamation
-            "@":le.Letter.atsign
-            "^":le.Letter.carat
-            "$":le.Letter.money
-            "#":le.Letter.hashtag
-            "*":le.Letter.aestric
-            "(":le.Letter.parenthesisleft
+            "!":le.Letter.exclamation,
+            "@":le.Letter.atsign,
+            "^":le.Letter.carat,
+            "$":le.Letter.money,
+            "#":le.Letter.hashtag,
+            "*":le.Letter.aestric,
+            "&":le.Letter.andsign,
+            "%":le.Letter.percent,
+            "(":le.Letter.parenthesisleft,
             ")":le.Letter.parenthesisright
             }))
         
