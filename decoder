@@ -4,6 +4,8 @@ import letters as le
 import json
 import sys
 import skilstak.colors as c
+import message as me
+from os import system
 
 def load_game():
     with open('letters.json', 'r') as pfile:
@@ -12,9 +14,14 @@ def load_game():
     inverse = {y:x for x,y in j.items()}
     encodedmessage = input(c.clear + c.red + "What is your encoded message? >> " + c.orange)
     n=0
-    while n < len(encodedmessage):
-        sys.stdout.write(c.red + inverse[encodedmessage[n]])
-        n += 1
+    if encodedmessage == "m":
+        while n < len(me.text):
+            sys.stdout.write(c.red + inverse[me.text[n]])
+            n += 1
+    else:
+        while n < len(encodedmessage):
+            sys.stdout.write(c.red + inverse[encodedmessage[n]])
+            n += 1
     print("")
 
 if __name__=='__main__':
