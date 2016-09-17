@@ -11,13 +11,12 @@ def encoder():
         j=json.load(pfile)
         #le.Letter.a=j['a']
     n=0
-    final = ""
+    final = "#"
     message = input(c.clear + c.red + "What is your message? >> " + c.orange)
     while n < len(message):
         final += j[message[n]]
-        sys.stdout.write(c.orange + j[message[n]])
         n += 1
-    print("")
+    print(c.orange + final)
     system('''echo 'text = "''' + final + '''"' >> message.py''')
 
 if __name__=='__main__':

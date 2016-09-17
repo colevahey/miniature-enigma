@@ -13,16 +13,20 @@ def load_game():
         #le.Letter.a=j['a']
     inverse = {y:x for x,y in j.items()}
     encodedmessage = input(c.clear + c.red + "What is your encoded message? >> " + c.orange)
-    n=0
+    n=1
+    final = ""
     if encodedmessage == "m":
         while n < len(me.text):
-            sys.stdout.write(c.red + inverse[me.text[n]])
+            final += inverse[me.text[n]]
+            n += 1
+    elif encodedmessage.startswith("#"):
+        while n < len(encodedmessage):
+            final += inverse[encodedmessage[n]]
             n += 1
     else:
-        while n < len(encodedmessage):
-            sys.stdout.write(c.red + inverse[encodedmessage[n]])
-            n += 1
-    print("")
+        print("INVALID MESSAGE TO BE DECODED")
+        system('exit')
+    print(final)
 
 if __name__=='__main__':
     load_game()
