@@ -12,7 +12,7 @@ def run():
         j=json.load(pfile)
         #le.Letter.a=j['a']
     inverse = {y:x for x,y in j.items()}
-    message = input(c.clear + c.red + "What is your message? >> " + c.orange)
+    message = input(c.red + "What is your message? >> " + c.orange)
     n=1
     final = ""
     if message == "m":
@@ -30,7 +30,7 @@ def run():
             final += j[message[n]]
             n += 1
         system('''echo 'text = "''' + final + '''"' >> message.py''')
-    print(final)
+    return final
 
 if __name__=='__main__':
-    run()
+    print(run())
