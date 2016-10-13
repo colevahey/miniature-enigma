@@ -4,16 +4,18 @@ import random
 import letters as le
 import save
 import skilstak.colors as colors
+import sys
 
 def main():
     letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
     for dank in "abcdefghijklmnopqrstuvwxyz":
         blah=random.choice(letters)
         letters.remove(blah)
+        dankupper=dank.upper()
         le.Letter.dank=blah
-        dankupper=dank.title()
         le.Letter.dankupper=blah.title()
-        stdout.write(blah)
+        sys.stdout.write(dank + ":" + blah + ", ")
+        save.save()
     '''a = random.choice(letters)
     le.Letter.a=a
     le.Letter.A=a.title()
@@ -119,7 +121,6 @@ def main():
     le.Letter.Z=z.title()
     letters.remove(z)
     print(colors.clear + colors.red + "Code:\n" + colors.orange + a+b+c+d+e+f+g+h+i+j+k+l+m+n+o+p+q+r+s+t+u+v+w+x+y+z)'''
-    save.save()
 
 if __name__ == '__main__':
     main()
