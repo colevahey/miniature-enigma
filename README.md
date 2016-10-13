@@ -1,6 +1,2 @@
 # miniature-enigma
-Encoder and Decoder written using Python and JSON. My plan for this
-project is for it to be able to create a code then assign letters in
-a message to that code. I hope that this project will further my 
-learning in JSON and Python, for many of my future projects will 
-utilize JSON for storing values. 
+Miniature-enigma is an encoder and decoder written using Python and JSON. This code is written in Python and JSON. The code program creates a random assignment for every letter in the alphabet and other special characters. The user can then call the `runner` file and it will ask "What is your message?". The user can input a message and they are returned with the encoded version of their message. The user can then call the `runner` function again, enter their returned message, and receive their original message back. This can be useful for communication across users because as long as the letter assignments are not changed, the encoded messages will return the original message on __any__ machine. I have since created a website for this project which is up and running at [cvenigma.ml](cvenigma.ml)
