@@ -5,18 +5,11 @@ import letters as le
 import save
 import skilstak.colors as colors
 import sys
+import json
 
 def main():
     letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-    for dank in "abcdefghijklmnopqrstuvwxyz":
-        blah=random.choice(letters)
-        letters.remove(blah)
-        dankupper=dank.upper()
-        le.Letter.dank=blah
-        le.Letter.dankupper=blah.title()
-        sys.stdout.write(dank + ":" + blah + ", ")
-        save.save()
-    '''a = random.choice(letters)
+    a = random.choice(letters)
     le.Letter.a=a
     le.Letter.A=a.title()
     letters.remove(a)
@@ -120,7 +113,8 @@ def main():
     le.Letter.z=z
     le.Letter.Z=z.title()
     letters.remove(z)
-    print(colors.clear + colors.red + "Code:\n" + colors.orange + a+b+c+d+e+f+g+h+i+j+k+l+m+n+o+p+q+r+s+t+u+v+w+x+y+z)'''
+    print(colors.clear + colors.red + "Code:\n" + colors.orange + a+b+c+d+e+f+g+h+i+j+k+l+m+n+o+p+q+r+s+t+u+v+w+x+y+z)
+    save.save()
 
 if __name__ == '__main__':
     main()
