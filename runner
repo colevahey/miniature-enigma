@@ -24,7 +24,6 @@ def run():
         while n < len(message):
             final += j[message[n]]
             n += 1
-        system('''echo 'text = "''' + final + '''"' >> message.py''')
     return final
 
 if __name__=='__main__':
