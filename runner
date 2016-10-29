@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import letters as le
 import json
 import sys
 import skilstak.colors as c
@@ -9,12 +8,11 @@ from os import system
 def run():
     with open('letters.json', 'r') as pfile:
         j=json.load(pfile)
-        #le.Letter.a=j['a']
     inverse = {y:x for x,y in j.items()}
     message = input(c.red + "What is your message? >> " + c.orange)
-    n=1
     final = ""
     if message.startswith("#"):
+        n=1
         while n < len(message):
             final += inverse[message[n]]
             n += 1
@@ -26,9 +24,26 @@ def run():
             n += 1
     return final
 
+def args():
+    if sys.argv[1]:
+        if sys.argv[1].startswith("-"):
+            if sys.argv[1] == '-h':
+                helper()
+            elif sys.argv[1] == '-e':
+                encoder()
+            elif sys.argv[1] == '-d':
+                decoder()
+            else:
+                print("To view usage type `runner -h`")
+        else:
+                print("To view usage type `runner -h`")
+    else:
+        print(run())
+
+
 if __name__=='__main__':
     try:
-        print(run())
+        args()
     except KeyboardInterrupt:
         print("")
         exit()
