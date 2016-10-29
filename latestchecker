@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+ 
+import skilstak.colors as c
+import urllib.request
+import json
+from os import system
+
+with urllib.request.urlopen('https://raw.githubusercontent.com/colevahey/miniature-enigma/master/letters.json') as web:
+    onlinejson = web.read()
+    data = json.loads(onlinejson.decode("utf-8"))
+    print(data)
+    with open('letters.json') as local:
+        localdata = json.load(local)
+        print(localdata)
+        if data == localdata:
+            print("COOL DUDE")
+        else:
+            print("NOT COOL")
+            system('save')
+
