@@ -16,5 +16,3 @@ with urllib.request.urlopen('https://raw.githubusercontent.com/colevahey/miniatu
             print("COOL DUDE")
         else:
             print("NOT COOL")
-            system('save')
-
