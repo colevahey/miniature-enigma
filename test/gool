@@ -1,0 +1,6 @@
+#!/usr/bin/env python3
+ 
+import skilstak.colors as c
+import stuff.hi as hi
+
+print(hi.cool[0])
