@@ -13,6 +13,6 @@ with urllib.request.urlopen('https://raw.githubusercontent.com/colevahey/miniatu
         localdata = json.load(local)
         print(localdata)
         if data == localdata:
-            print("COOL DUDE")
+            print(c.green + "The code is up to date" + c.x)
         else:
-            print("NOT COOL")
+            print(c.red + "The code is not up to date" + c.x)
