@@ -4,6 +4,7 @@ import skilstak.colors as c
 import urllib.request
 import json
 from os import system
+from time import sleep
 
 with urllib.request.urlopen('https://raw.githubusercontent.com/colevahey/miniature-enigma/master/letters.json') as web:
     onlinejson = web.read()
@@ -15,4 +16,13 @@ with urllib.request.urlopen('https://raw.githubusercontent.com/colevahey/miniatu
         if data == localdata:
             print(c.green + "The code is up to date" + c.x)
         else:
-            print(c.red + "The code is not up to date" + c.x)
+            print(c.red + "The code is not up to date\n" + c.x)
+            pushorpull = input(c.red + "Would you like to push your version of the code or pull the online version of the code?\n" + c.x + ">> " + c.red)
+            if pushorpull.lower() == "push":
+                system('git push')
+            elif pushorpull.lower() == "pull":
+                system('git pull')
+            else:
+                print("That is not an acceptable input please try again" + c.x)
+                sleep(2)
+                system('latestchecker')
