@@ -6,7 +6,7 @@ import json
 from os import system
 from time import sleep
 
-with urllib.request.urlopen('https://raw.githubusercontent.com/colevahey/miniature-enigma/master/letters.json') as web:
+with urllib.request.urlopen('https://rawgit.com/colevahey/miniature-enigma/master/letters.json') as web:
     onlinejson = web.read()
     data = json.loads(onlinejson.decode("utf-8"))
 
@@ -16,6 +16,7 @@ with open('letters.json') as local:
 def checker():
     if data == localdata:
         print(c.clear + c.green + "The code is up to date" + c.x)
+        data['a'] = "f"
     else:
         print(c.clear + c.red + "The code is not up to date\n")
         pushorpull = input("Would you like to push your version of the code or pull the online version of the code?\n" + c.x + "Note: There is latency when updating the github raw code\n>> " + c.red)
