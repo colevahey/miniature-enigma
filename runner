@@ -20,7 +20,8 @@ def encoder(message):
     n = 0
     final = "#"
     while n < len(message):
-        final += j[message[n]]
+        letter = message[n]
+        final += j[letter]
         n += 1
     return final
 
@@ -29,7 +30,8 @@ def decoder(message):
     n=1
     if message.startswith("#"):
         while n < len(message):
-            final += inverse[message[n]]
+            letter = message[n]
+            final += inverse[letter]
             n += 1
         return final
     else:
