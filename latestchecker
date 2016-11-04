@@ -19,7 +19,7 @@ def checker():
         print(c.clear + c.green + "The code is up to date" + c.x)
     else:
         print(c.clear + c.red + "The code is not up to date\n")
-        pushorpull = input("Would you like to push your version of the code or pull the online version of the code?\n" + c.x + "Note: There is latency when updating the github raw code\n>> " + c.red)
+        pushorpull = input("Would you like to push your version of the code or pull the online version of the code?\n" + c.x + "Note: There is latency when updating the github raw code\n>> " + c.red + c.x)
         if pushorpull.lower().strip() == "push":
             system('save')
         elif pushorpull.lower().strip() == "pull":
