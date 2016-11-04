@@ -17,23 +17,17 @@ with open('letters.json') as local:
 def checker():
     if data == localdata:
         print(c.clear + c.green + "The code is up to date" + c.x)
-        lol = [1,2,3,4,5]
-        data[random.choice(lol)] = "17 years old"
-        system('git push')
-        system('save')
-        system('ghs')
-        print(data)
     else:
         print(c.clear + c.red + "The code is not up to date\n")
         pushorpull = input("Would you like to push your version of the code or pull the online version of the code?\n" + c.x + "Note: There is latency when updating the github raw code\n>> " + c.red)
         if pushorpull.lower().strip() == "push":
-            system('git push')
+            system('save')
         elif pushorpull.lower().strip() == "pull":
             system('git pull')
         else:
             print("That is not an acceptable input please try again" + c.x)
             sleep(1.5)
-            system('latestchecker')
+            checker()
 
 if __name__ == '__main__':
     try:
