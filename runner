@@ -11,14 +11,12 @@ with open('letters.json', 'r') as pfile:
 
 def run():
     message = input(c.red + "What is your message? >> " + c.orange)
-    final = ""
     if message.startswith("#"):
-        print(decoder())
+        print(decoder(message))
     else:
-        print(encoder())
+        print(encoder(message))
 
-def encoder():
-    message = input(c.red + "What is your message? >> " + c.orange)
+def encoder(message):
     n = 0
     final = "#"
     while n < len(message):
@@ -26,8 +24,7 @@ def encoder():
         n += 1
     return final
 
-def decoder():
-    message = input(c.red + "What is your message? >> " + c.orange)
+def decoder(message):
     final = ""
     n=1
     if message.startswith("#"):
@@ -43,16 +40,16 @@ def helper():
     print(c.x + "Usage:\nMiniature-enigma has an encoder and decoder function. If you do not wish to specify the encoder or decoder you may run miniature-enigma without a specified function.\n\n    -d:\n       This is the decoder function.\n\n   -e:\n       This is the encoder function.\n\n   -h:\n       Shows the usage for miniature-enigma")
 
 def args():
-    if len(sys.argv) = 1:
-        print(run())
-    elif len(sys.argv) = 2
+    if len(sys.argv) == 1:
+        run()
+    elif len(sys.argv) == 2:
         if sys.argv[1].startswith("-"):
             if sys.argv[1] == '-h':
                 helper()
             elif sys.argv[1] == '-e':
-                print(encoder())
+                print(encoder(input(c.red + "What is your message? >> " + c.orange)))
             elif sys.argv[1] == '-d':
-                print(decoder())
+                print(decoder(input(c.red + "What is your message? >> " + c.orange)))
             else:
                 print("To view usage type `runner -h`")
         else:
