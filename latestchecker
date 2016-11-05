@@ -8,14 +8,14 @@ from time import sleep
 import random
 
 with urllib.request.urlopen('https://rawgit.com/colevahey/miniature-enigma/master/letters.json') as web:
-    onlinejson = web.read()
-    data = json.loads(onlinejson.decode("utf-8"))
+    onlinejson = web.read().decode("utf-8")
+    onlinedata = json.loads(onlinejson)
 
 with open('letters.json') as local:
     localdata = json.load(local)
 
 def checker():
-    if data == localdata:
+    if onlinedata == localdata:
         print(c.clear + c.green + "The code is up to date" + c.x)
     else:
         print(c.clear + c.red + "The code is not up to date\n")
