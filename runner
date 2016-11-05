@@ -52,7 +52,7 @@ def args():
         run()
     elif len(sys.argv) == 2:
         if sys.argv[1].startswith("-"):
-            if sys.argv[1] == '-h':
+            if sys.argv[1] == '-h' or sys.argv[1] == '--help':
                 helper()
             elif sys.argv[1] == '-e':
                 print(encoder(input(c.red + "What is your message? >> " + c.orange)))

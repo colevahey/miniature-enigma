@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+ 
+import skilstak.colors as c
+import json
+
+with open('letters.json', 'w') as jsonstuff:
+    letters = json.load(jsonstuff)
+    list(letters)
