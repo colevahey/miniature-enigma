@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+ 
+import skilstak.colors as c
+
+def rot(charcount):
+    message = input("What is your message? >> ")
+    if not message.startswith("#"):
+        final = "#"
+        for c in message:
+            newchr = ord(c) + charcount
+            if newchr > 126:
+                newchr -= 95
+            elif ord(c) < 32:
+                print("That character is not supported")
+            else:
+                pass
+            final += chr(newchr)
+        print(final)
+    #If the message starts with # or is encoded
+    else:
+        final = ""
+        #replaces ALL # with "" which needs to be just message[0]
+        nmessage = message.replace("#","")
+        for c in nmessage:
+            newchr = ord(c) - charcount
+            if newchr < 32:
+                newchr += 95
+            else:
+                pass
+            final += chr(newchr)
+        print(final)
+
+if __name__ == '__main__':
+    rot(int(input("What is your key number? >> ")))
