@@ -20,7 +20,7 @@ def rot(charcount):
     else:
         final = ""
         #replaces ALL # with "" which needs to be just message[0]
-        nmessage = message.replace("#","")
+        nmessage = message.replace(message[0],"")
         for c in nmessage:
             newchr = ord(c) - charcount
             if newchr < 32:
