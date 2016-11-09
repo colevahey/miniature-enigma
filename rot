@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
  
 import skilstak.colors as c
+import random
+from sys import argv
 
 def rot(charcount):
     message = input("What is your message? >> ")
     if not message.startswith("#"):
-        final = "#"
+        final = str(charcount) + "#"
         for c in message:
             newchr = ord(c) + charcount
             if newchr > 126:
@@ -19,8 +21,7 @@ def rot(charcount):
     #If the message starts with # or is encoded
     else:
         final = ""
-        #replaces ALL # with "" which needs to be just message[0]
-        nmessage = message.replace(message[0],"")
+        nmessage = message[1:]
         for c in nmessage:
             newchr = ord(c) - charcount
             if newchr < 32:
@@ -31,4 +32,8 @@ def rot(charcount):
         print(final)
 
 if __name__ == '__main__':
-    rot(int(input("What is your key number? >> ")))
+    if len(argv) == 1:
+        rot(random.randint(0,95))
+    elif len(argv) == 2:
+        print("Oops")
+        
