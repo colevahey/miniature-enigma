@@ -3,11 +3,16 @@
 import skilstak.colors as c
 import random
 from sys import argv
+from os import system
 
-def rot(charcount):
+def ask_message():
     message = input("What is your message? >> ")
+    rot(message)
+
+def rot(message):
+    charcount = random.randint(0,95)
     if not message.startswith("#"):
-        final = str(charcount) + "#"
+        final = "#" + str(charcount)
         for c in message:
             newchr = ord(c) + charcount
             if newchr > 126:
@@ -21,7 +26,8 @@ def rot(charcount):
     #If the message starts with # or is encoded
     else:
         final = ""
-        nmessage = message[1:]
+        charcount = int(message[1] + message[2])
+        nmessage = message[3:]
         for c in nmessage:
             newchr = ord(c) - charcount
             if newchr < 32:
@@ -33,7 +39,25 @@ def rot(charcount):
 
 if __name__ == '__main__':
     if len(argv) == 1:
-        rot(random.randint(0,95))
+        ask_message()
     elif len(argv) == 2:
-        print("Oops")
-        
+        if argv[1] == '-m':
+            print("You need to include a message")
+        elif argv[1] == '-e':
+            #encode
+            pass
+        elif argv[1] == '-d':
+            #decode
+            pass
+        elif argv[1] == '-h':
+            #help
+            pass
+        else:
+            print("That input is not acceptable. To view help type 'rot -h'")
+    elif len(argv) >= 3:
+        if argv[1] == '-m':
+            rot(system('$@'))
+        else:
+            print("That input is not acceptable. To view help type 'rot -h'")
+    else:
+        print("That input is not acceptable. To view help type 'rot -h'")
