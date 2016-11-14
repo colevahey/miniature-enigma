@@ -11,8 +11,8 @@ def ask_message():
 
 def rot(message):
     charcount = random.randint(0,95)
-    if not message.startswith("#"):
-        final = "#" + str(charcount)
+    if not message.startswith("*"):
+        final = "*" + str(charcount)
         for c in message:
             newchr = ord(c) + charcount
             if newchr > 126:
@@ -23,7 +23,6 @@ def rot(message):
                 pass
             final += chr(newchr)
         print(final)
-    #If the message starts with # or is encoded
     else:
         final = ""
         charcount = int(message[1] + message[2])
@@ -56,7 +55,12 @@ if __name__ == '__main__':
             print("That input is not acceptable. To view help type 'rot -h'")
     elif len(argv) >= 3:
         if argv[1] == '-m':
-            rot(system('$@'))
+            count = 2
+            message = ""
+            while count < len(argv):
+                message += (argv[count])
+                count += 1
+            rot(message)
         else:
             print("That input is not acceptable. To view help type 'rot -h'")
     else:
