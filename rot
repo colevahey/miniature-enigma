@@ -5,16 +5,23 @@ import random
 from sys import argv
 from os import system
 
+def randomnumber():
+    num = random.randint(0,95)
+    if num < 10:
+        charcount = "0" + str(num)
+    else:
+        charcount = str(num)
+    return charcount
+
 def ask_message():
     message = input("What is your message? >> ")
-    rot(message)
+    rot(message, randomnumber())
 
-def rot(message):
-    charcount = random.randint(0,95)
-    if not message.startswith("*"):
-        final = "*" + str(charcount)
+def rot(message, charcount):
+    if not message.startswith("#"):
+        final = "#" + str(charcount)
         for c in message:
-            newchr = ord(c) + charcount
+            newchr = ord(c) + int(charcount)
             if newchr > 126:
                 newchr -= 95
             elif ord(c) < 32:
@@ -28,7 +35,7 @@ def rot(message):
         charcount = int(message[1] + message[2])
         nmessage = message[3:]
         for c in nmessage:
-            newchr = ord(c) - charcount
+            newchr = ord(c) - int(charcount)
             if newchr < 32:
                 newchr += 95
             else:
@@ -39,28 +46,20 @@ def rot(message):
 if __name__ == '__main__':
     if len(argv) == 1:
         ask_message()
-    elif len(argv) == 2:
+    elif len(argv) >= 2:
         if argv[1] == '-m':
-            print("You need to include a message")
-        elif argv[1] == '-e':
-            #encode
-            pass
-        elif argv[1] == '-d':
-            #decode
+            if len(argv) == 2:
+                print("You need to include a message")
+            elif len(argv) == 3:
+                rot(argv[2],randomnumber())
+            else:
+                print("Surround your message in quotes")
+        elif argv[1] == '-k':
             pass
         elif argv[1] == '-h':
             #help
             pass
         else:
-            print("That input is not acceptable. To view help type 'rot -h'")
-    elif len(argv) == 3:
-        if argv[1] == '-m':
-            rot(argv[2])
-            #strip function will strip the quotations off prior to encoding/decoding
-        else:
-            print("That input is not acceptable. To view help type 'rot -h'")
+            print("That is not an acceptable input. To see help type 'rot -h'")
     else:
-        if argv[1] == '-m':
-            print("Surround your message in quotes to use the '-m' option")
-        else:
-            print("That input is not acceptable. To view help type 'rot -h'")
+        pass
