@@ -53,15 +53,14 @@ if __name__ == '__main__':
             pass
         else:
             print("That input is not acceptable. To view help type 'rot -h'")
-    elif len(argv) >= 3:
+    elif len(argv) == 3:
         if argv[1] == '-m':
-            count = 2
-            message = ""
-            while count < len(argv):
-                message += (argv[count])
-                count += 1
-            rot(message)
+            rot(argv[2])
+            #strip function will strip the quotations off prior to encoding/decoding
         else:
             print("That input is not acceptable. To view help type 'rot -h'")
     else:
-        print("That input is not acceptable. To view help type 'rot -h'")
+        if argv[1] == '-m':
+            print("Surround your message in quotes to use the '-m' option")
+        else:
+            print("That input is not acceptable. To view help type 'rot -h'")
