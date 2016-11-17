@@ -2,7 +2,7 @@
 
 import json
 import sys
-import skilstak.colors as c
+import colors as c
 from os import system
 
 with open('letters.json', 'r') as pfile:

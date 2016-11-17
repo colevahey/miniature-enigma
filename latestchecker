@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
  
-import skilstak.colors as c
+import colors as c
 import urllib.request
 import json
 from os import system

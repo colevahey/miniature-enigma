@@ -3,7 +3,7 @@
 """Creates a random code that messages will be encoded to"""
 
 import random
-import skilstak.colors as colors
+import colors as colors
 import sys
 
 def main():
