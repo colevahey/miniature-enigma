@@ -6,7 +6,9 @@ from sys import argv
 from os import system
 
 def randomnumber():
-    num = random.randint(0,95)
+    return random.randint(0,95)
+
+def fixer(num):
     if num < 10:
         charcount = "0" + str(num)
     else:
@@ -15,7 +17,7 @@ def randomnumber():
 
 def ask_message():
     message = input("What is your message? >> ")
-    rot(message, randomnumber())
+    return message
 
 def rot(message, charcount):
     if not message.startswith("#"):
@@ -45,16 +47,23 @@ def rot(message, charcount):
 
 if __name__ == '__main__':
     if len(argv) == 1:
-        ask_message()
+        rot(ask_message(),fixer(randomnumber()))
     elif len(argv) >= 2:
         if argv[1] == '-m':
             if len(argv) == 2:
-                print("You need to include a message")
+                print("You need to include a message surrounded in quotes.")
             elif len(argv) == 3:
-                rot(argv[2],randomnumber())
+                rot(argv[2],fixer(randomnumber()))
             else:
-                print("Surround your message in quotes")
+                print("Surround your message in quotes.")
         elif argv[1] == '-k':
+            if len(argv) == 3:
+                if int(argv[2]) > -1 and int(argv[2]) < 96:
+                    rot(ask_message(),fixer(int(argv[2])))
+                else:
+                    print("For a keycount, please enter a key between 0 and 95")
+            else:
+                print("For a keycount, please enter a key between 0 and 95")
             pass
         elif argv[1] == '-h':
             #help
