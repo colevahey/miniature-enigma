@@ -9,7 +9,9 @@ def randomnumber():
     return random.randint(0,95)
 
 def fixer(num):
-    if int(num) < 10:
+    if int(num) > 95 or int(num) < 0:
+        print("Please input a number between 0 and 95")
+    elif int(num) < 10:
         charcount = "0" + str(num)
     else:
         charcount = str(num)
@@ -46,29 +48,25 @@ def rot(message, charcount):
         print(final)
 
 if __name__ == '__main__':
-    if len(argv) == 1:
-        rot(ask_message(),fixer(randomnumber()))
-    elif len(argv) >= 2:
-        if argv[1] == '-m':
-            if len(argv) == 2:
-                print("You need to include a message surrounded in quotes.")
-            elif len(argv) == 3:
-                rot(argv[2],fixer(randomnumber()))
-            else:
-                print("Surround your message in quotes.")
-        elif argv[1] == '-k':
-            if len(argv) == 3:
-                if int(argv[2]) > -1 and int(argv[2]) < 96:
-                    rot(ask_message(),fixer(int(argv[2])))
-                else:
-                    print("For a keycount, please enter a key between 0 and 95")
-            else:
-                print("For a keycount, please enter a key between 0 and 95")
+    message = None
+    key = None
+    for arg in range(len(argv)):
+        if argv[arg] in __file__:
             pass
-        elif argv[1] == '-h':
-            #help
-            pass
+        elif argv[arg] == '-m':
+            message = argv[arg+1]
+        elif argv[arg] == '-k':
+            key = argv[arg+1]
         else:
-            print("That is not an acceptable input. To see help type 'rot -h'")
+            pass
+    if message == None and key == None:
+        print("No message and no key")
+        rot(ask_message(),fixer(randomnumber()))
+    elif not message == None and key == None:
+        print("Message but no key")
+        rot(message,fixer(randomnumber()))
+    elif message == None and not key == None:
+        print("No message but a key")
+        rot(ask_message(),fixer(key))
     else:
-        pass
+        rot(message,fixer(key))
