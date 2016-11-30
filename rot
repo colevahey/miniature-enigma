@@ -9,8 +9,12 @@ def randomnumber():
     return random.randint(0,95)
 
 def fixer(num):
+    if TypeError:
+        print("Please input a number between 0 and 95")
+        exit()
     if int(num) > 95 or int(num) < 0:
         print("Please input a number between 0 and 95")
+        exit()
     elif int(num) < 10:
         charcount = "0" + str(num)
     else:
@@ -21,7 +25,7 @@ def ask_message():
     message = input("What is your message? >> ")
     return message
 
-def rot(message, charcount):
+def rot(charcount, message):
     if not message.startswith("#"):
         final = "#" + str(charcount)
         for c in message:
@@ -52,28 +56,35 @@ def helper():
     exit()
 
 if __name__ == '__main__':
-    message = None
-    key = None
-    for arg in range(len(argv)):
-        if argv[arg] in __file__:
-            pass
-        elif argv[arg] == '-m':
-            message = argv[arg+1]
-        elif argv[arg] == '-k':
-            key = argv[arg+1]
-        elif argv[arg] == '-h' or argv[arg] == '--help':
-            helper()
+    try:
+        message = None
+        key = None
+        for arg in range(len(argv)):
+            if argv[arg] in __file__:
+                pass
+            elif argv[arg] == '-m':
+                message = argv[arg+1]
+            elif argv[arg] == '-k':
+                key = argv[arg+1]
+            elif argv[arg] == '-h' or argv[arg] == '--help':
+                helper()
+            else:
+                pass
+        if message == None and key == None:
+            #No message and no key
+            rot(fixer(randomnumber()), ask_message())
+        elif not message == None and key == None:
+            #Message but no key
+            rot(fixer(randomnumber()), message)
+        elif message == None and not key == None:
+            #No message but a key
+            rot(fixer(key), ask_message())
         else:
-            pass
-    if message == None and key == None:
-        #No message and no key
-        rot(ask_message(),fixer(randomnumber()))
-    elif not message == None and key == None:
-        #Message but no key
-        rot(message,fixer(randomnumber()))
-    elif message == None and not key == None:
-        #No message but a key
-        rot(ask_message(),fixer(key))
-    else:
-        #Message and a key
-        rot(message,fixer(key))
+            #Message and a key
+            rot(fixer(key), message())
+    except KeyboardInterrupt:
+        print()
+        exit()
+    except EOFError:
+        print()
+        exit()
