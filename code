@@ -3,23 +3,34 @@
 """Creates a random code that messages will be encoded to"""
 
 import random
-import colors as colors
-import sys
+import string
+import json
 
 def main():
-    letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-    with open('letters.json', 'w') as code:
-        print(colors.clear + colors.red + "Code:" + colors.orange)
-        code.write("{")
-        for key in "abcdefghijklmnopqrstuvwxyz":
-            value = random.choice(letters)
-            letters.remove(value)
-            sys.stdout.write(value)
-            code.write(
-                    '"' + key + '":"' + value + '","' + key.upper() + '":"' + value.upper() + '",'
-                )
-        code.write('" ":" "}')
-        print()
+    #Open the js file for writing
+    jsonfile = open('letters.json', 'w')
+
+    #Get the alphabet into a list of keys 
+    keys = [ x for x in string.ascii_lowercase ]
+
+    #Shuffle the keys so that the keys and values are not 'a,b,c,...'
+    random.shuffle(keys)
+
+    #Get the values from the shuffled keys
+    values = [ y for y in keys ]
+
+    #Create an empty dictionary to save for the json.
+    code = {}
+
+    for i in range(len(keys)):
+        #Update the code with the key value pair of that iteration
+        code.update({sorted(keys)[i]:values[i]})
+
+        #Update with the capital characters of those same letters
+        code.update({sorted(keys)[i].title():values[i].title()})
+
+    print(values)
+    jsonfile.write("var Letters = " + str(code))
 
 if __name__ == '__main__':
     main()
